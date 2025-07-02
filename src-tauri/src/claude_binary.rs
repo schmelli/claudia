@@ -426,6 +426,9 @@ pub fn create_command_with_env(program: &str) -> Command {
             || key == "NVM_BIN"
             || key == "HOMEBREW_PREFIX"
             || key == "HOMEBREW_CELLAR"
+            || key == "ANTHROPIC_API_KEY"
+            || key == "CLAUDE_SESSION_TOKEN"
+            || key.starts_with("CLAUDE_")
         {
             debug!("Inheriting env var: {}={}", key, value);
             cmd.env(&key, &value);
